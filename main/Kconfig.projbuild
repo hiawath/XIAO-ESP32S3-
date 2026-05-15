@@ -1,0 +1,15 @@
+menu "카메라 앱 설정"
+
+    config WIFI_SSID
+        string "Wi-Fi SSID"
+        default "myssid"
+        help
+            연결할 Wi-Fi 공유기 이름(SSID)을 입력하세요.
+
+    config WIFI_PASSWORD
+        string "Wi-Fi Password"
+        default "mypassword"
+        help
+            Wi-Fi 비밀번호를 입력하세요.
+
+endmenu

@@ -1,0 +1,11 @@
+# ESP-IDF 빌드 결과물
+build/
+.cache/
+
+# ⚠️ Wi-Fi 비밀번호 등 민감 정보가 저장되는 파일 - 절대 커밋 금지
+sdkconfig
+sdkconfig.old
+
+# 의존성 (Component Manager가 다시 받음)
+managed_components/
+dependencies.lock

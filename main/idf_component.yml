@@ -1,0 +1,4 @@
+## IDF Component Manager 의존성 파일
+dependencies:
+  idf: ">=5.0"
+  espressif/esp32-camera: ">=2.0.0"
