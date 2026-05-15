@@ -78,7 +78,7 @@ static esp_err_t camera_init(void)
         .ledc_channel   = LEDC_CHANNEL_0,
 
         .pixel_format   = PIXFORMAT_JPEG,
-        .frame_size     = FRAMESIZE_VGA,   // 640x480
+        .frame_size     = FRAMESIZE_QVGA, //FRAMESIZE_VGA,   // 640x480
         .jpeg_quality   = 12,              // 0~63, 낮을수록 고품질
         .fb_count       = 2,
         .fb_location    = CAMERA_FB_IN_PSRAM,
@@ -93,15 +93,30 @@ static esp_err_t camera_init(void)
 
     sensor_t *s = esp_camera_sensor_get();
     if (s) {
-        s->set_whitebal(s, 1);
-        s->set_awb_gain(s, 1);
-        s->set_exposure_ctrl(s, 1);
-        s->set_gain_ctrl(s, 1);
-        s->set_lenc(s, 1);
-        s->set_wpc(s, 1);
-        s->set_raw_gma(s, 1);
-        s->set_hmirror(s, 0);
-        s->set_vflip(s, 0);
+// 화이트밸런스
+    s->set_whitebal(s, 0);       // 0: off  1: AWB ON
+    s->set_awb_gain(s, 1);       // AWB gain ON
+    s->set_wb_mode(s, 4);        // ← 핵심: 0=자동, 1=맑음, 2=흐림, 3=사무실, 4=가정
+
+    // 노출
+    s->set_exposure_ctrl(s, 1);
+    s->set_aec2(s, 1);           // ← 향상된 자동노출 ON
+    s->set_ae_level(s, 0);
+
+    // 게인
+    s->set_gain_ctrl(s, 1);
+    s->set_gainceiling(s, (gainceiling_t)2);
+
+    // 화질
+    s->set_lenc(s, 1);
+    s->set_wpc(s, 1);
+    s->set_raw_gma(s, 1);
+    s->set_hmirror(s, 0);
+    s->set_vflip(s, 0);
+
+    // 색상 보정 (녹색 치우침 완화)
+    s->set_saturation(s, 0);     // 채도: -2~2
+    s->set_special_effect(s, 0); // 0=없음 (컬러필터 해제 확인)
     }
 
     ESP_LOGI(TAG, "카메라 초기화 성공");
