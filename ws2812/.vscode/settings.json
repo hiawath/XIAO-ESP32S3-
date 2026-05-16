@@ -1,10 +1,18 @@
 {
   "idf.currentSetup": "/Users/andrew/.espressif/v6.0.1/esp-idf",
+  "idf.flashType": "UART",
+  "idf.openOcdConfigs": [
+    "board/esp32s3-builtin.cfg"
+  ],
+  "idf.customExtraVars": {
+    "IDF_TARGET": "esp32s3"
+  },
   "clangd.path": "/Users/andrew/.espressif/tools/esp-clang/esp-20.1.1_20250829/esp-clang/bin/clangd",
   "clangd.arguments": [
     "--background-index",
     "--query-driver=**",
-    "--compile-commands-dir=/Users/andrew/esp32-project/esp-camera/XIAO-ESP32S3-Sense/build"
+    "--compile-commands-dir=/Users/andrew/esp32-project/esp-camera/ws2812/build"
   ],
+  "idf.port": "/dev/tty.usbmodem11301",
   "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json"
 }

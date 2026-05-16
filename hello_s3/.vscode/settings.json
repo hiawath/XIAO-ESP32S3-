@@ -2,5 +2,6 @@
   "idf.flashType": "UART",
   "idf.customExtraVars": {},
   "idf.port": "/dev/tty.usbmodem11301",
-  "idf.currentSetup": "/Users/andrew/.espressif/v6.0.1/esp-idf"
+  "idf.currentSetup": "/Users/andrew/.espressif/v6.0.1/esp-idf",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json"
 }

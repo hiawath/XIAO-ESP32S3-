@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "hello_s3"
+		},
+		{
+			"path": "ws2812"
 		}
 	],
 	"settings": {}
