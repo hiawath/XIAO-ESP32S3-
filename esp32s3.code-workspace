@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "XIAO-ESP32S3-Sense"
+		},
+		{
+			"path": "hello_s3"
+		}
+	],
+	"settings": {}
+}
